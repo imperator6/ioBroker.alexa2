@@ -621,6 +621,8 @@ function updateMediaProgress(serialNumber) {
     let lastTimestamp = lastPlayerState[serialNumber].ts;
 
 	let currentState = resPlayer.playerInfo.state;
+	
+	adapter.setState(devId + '.Player.currentState', currentState, true);
 
 	if (currentState === 'PLAYING' && resPlayer.playerInfo && resPlayer.playerInfo.progress) {
         let mediaProgress = parseInt(resPlayer.playerInfo.progress.mediaProgress, 10);
